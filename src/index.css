@@ -1,0 +1,68 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Great+Vibes&family=Poppins:wght@300;400;500;600&display=swap');
+
+:root {
+  --maroon: #7a1224;
+  --maroon-dark: #5c0d1a;
+  --gold: #c9973f;
+  --gold-light: #e8c27a;
+  --blush: #f6dfe0;
+  --blush-light: #fdf3ec;
+  --cream: #fdf6ef;
+  --pink: #e39aa4;
+  --text-dark: #3b2320;
+  --text-muted: #7a5f5c;
+
+  --font-script: 'Great Vibes', cursive;
+  --font-heading: 'Playfair Display', 'Georgia', serif;
+  --font-body: 'Poppins', system-ui, sans-serif;
+
+  color-scheme: light;
+  color: var(--text-dark);
+  background: var(--cream);
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+
+#root {
+  min-height: 100svh;
+  overflow-x: hidden;
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--font-heading);
+  margin: 0;
+}
+
+p {
+  margin: 0;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  -webkit-tap-highlight-color: transparent;
+}
+
+button {
+  -webkit-tap-highlight-color: transparent;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+button {
+  font-family: inherit;
+}
