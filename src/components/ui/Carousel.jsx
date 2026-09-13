@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { useAutoRotate } from '../../hooks/useAutoRotate'
 
-// Reusable crossfade image carousel with auto rotation and dot controls.
+// Reusable image carousel. Slides move right to left and auto advance.
 function Carousel({ slides, intervalMs = 3000, className = '', label = 'Slideshow' }) {
   const [isPaused, setIsPaused] = useState(false)
   const { index, setIndex } = useAutoRotate(slides.length, intervalMs, isPaused)
@@ -17,18 +17,21 @@ function Carousel({ slides, intervalMs = 3000, className = '', label = 'Slidesho
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
     >
-      {slides.map((slide, slideIndex) => (
-        <img
-          key={slide.src}
-          src={slide.src}
-          alt={slide.alt}
-          className={`carousel__slide ${
-            slideIndex === index ? 'is-active' : ''
-          }`.trim()}
-          loading={slideIndex === 0 ? 'eager' : 'lazy'}
-          aria-hidden={slideIndex === index ? undefined : 'true'}
-        />
-      ))}
+      <div
+        className="carousel__track"
+        style={{ transform: `translateX(-${index * 100}%)` }}
+      >
+        {slides.map((slide, slideIndex) => (
+          <img
+            key={slide.src}
+            src={slide.src}
+            alt={slide.alt}
+            className="carousel__slide"
+            loading={slideIndex === 0 ? 'eager' : 'lazy'}
+            aria-hidden={slideIndex === index ? undefined : 'true'}
+          />
+        ))}
+      </div>
 
       {slides.length > 1 && (
         <div className="carousel__dots">

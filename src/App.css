@@ -197,7 +197,7 @@ a.card:hover {
   padding: 0 0 28px;
 }
 
-/* Reusable crossfade carousel */
+/* Reusable sliding carousel */
 .carousel {
   position: relative;
   width: 100%;
@@ -205,22 +205,17 @@ a.card:hover {
   overflow: hidden;
 }
 
+.carousel__track {
+  display: flex;
+  will-change: transform;
+  transition: transform 0.7s cubic-bezier(0.45, 0, 0.15, 1);
+}
+
 .carousel__slide {
+  flex: 0 0 100%;
   width: 100%;
   height: auto;
   object-fit: contain;
-  opacity: 0;
-  transition: opacity 0.8s ease;
-}
-
-.carousel__slide:not(:first-child) {
-  position: absolute;
-  inset: 0;
-  height: 100%;
-}
-
-.carousel__slide.is-active {
-  opacity: 1;
 }
 
 .carousel__dots {
@@ -717,10 +712,11 @@ a.card:hover {
 }
 
 .celebrate__title {
-  font-family: var(--font-script);
-  font-size: 42px;
-  font-weight: 400;
-  line-height: 1.1;
+  /* Great Vibes has no Devanagari glyphs, so this text uses the serif stack */
+  font-family: var(--font-heading);
+  font-size: 34px;
+  font-weight: 600;
+  line-height: 1.25;
   color: var(--gold-light);
   margin: 4px 0 8px;
 }
@@ -734,7 +730,7 @@ a.card:hover {
 .celebrate__signature {
   margin-top: 14px;
   font-family: var(--font-script);
-  font-size: 24px;
+  font-size: 26px;
   color: var(--gold);
 }
 
@@ -1099,5 +1095,9 @@ a.card:hover {
   .modal__panel,
   .celebrate__icon {
     animation: none;
+  }
+
+  .carousel__track {
+    transition: none;
   }
 }

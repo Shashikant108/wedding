@@ -21,6 +21,14 @@ export const couple = {
 // The date the main countdown on the hero section counts down to.
 export const weddingDate = '2026-11-30T00:00:00'
 
+// Shared location, so the address and its map link live in one place only.
+const BYAHUT_BHAWAN = {
+  location: 'Byahut Bhawan',
+  place: 'Bhikhabandh',
+  mapUrl:
+    'https://www.google.com/maps/place/Badi+Durga+Mandir/@26.0983058,84.5319715,47m/data=!3m1!1e3!4m6!3m5!1s0x3992e980d2d69d7d:0xbdb5ca9df1ae1930!8m2!3d26.0983787!4d84.5320158!16s%2Fg%2F11jh_893lj',
+}
+
 export const events = [
   {
     id: 'tilak',
@@ -28,8 +36,7 @@ export const events = [
     icon: '🪔',
     date: '2026-11-25',
     time: '10:00 AM',
-    location: 'Byahut Bhawan',
-    place: 'Bhikhabandh',
+    ...BYAHUT_BHAWAN,
   },
   {
     id: 'haldi',
@@ -37,8 +44,7 @@ export const events = [
     icon: '🌼',
     date: null,
     time: '10:00 AM',
-    location: 'Byahut Bhawan',
-    place: 'Bhikhabandh',
+    ...BYAHUT_BHAWAN,
   },
   {
     id: 'mehendi',
@@ -46,8 +52,7 @@ export const events = [
     icon: '🌿',
     date: '2026-11-24',
     time: '06:00 PM',
-    location: 'Byahut Bhawan',
-    place: 'Bhikhabandh',
+    ...BYAHUT_BHAWAN,
   },
   {
     id: 'barat',
@@ -56,16 +61,16 @@ export const events = [
     date: '2026-11-30',
     time: '07:00 PM',
     isRoute: true,
-    from: 'Mahadevganj',
-    to: 'Ayodhya Bhawan',
+    from: 'Bhikhabandh',
+    to: 'Maharajganj',
   },
 ]
 
 export const venue = {
-  name: 'Ayodhya Bhawan',
-  addressLine1: 'Mahadevganj',
-  addressLine2: 'Uttar Pradesh',
-  mapQuery: 'Ayodhya Bhawan, Mahadevganj, Uttar Pradesh',
+  name: BYAHUT_BHAWAN.location,
+  addressLine1: BYAHUT_BHAWAN.place,
+  addressLine2: 'Siwan',
+  mapQuery: `${BYAHUT_BHAWAN.location}, ${BYAHUT_BHAWAN.place}, Siwan`,
 }
 
 export const specialNote = {

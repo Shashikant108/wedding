@@ -46,18 +46,18 @@ function RSVPBanner() {
       <Modal
         isOpen={isCelebrating}
         onClose={() => setIsCelebrating(false)}
-        label="Thank you for accepting our invitation"
+        label="निमंत्रण स्वीकार करने के लिए धन्यवाद"
         className="celebrate"
       >
         <Confetti isActive={isCelebrating} />
 
         <div className="celebrate__body">
           <span className="celebrate__icon" aria-hidden="true">🎉</span>
-          <p className="celebrate__eyebrow">Yay, you are coming</p>
-          <h3 className="celebrate__title">Thank You</h3>
+          <p className="celebrate__eyebrow">आप आ रहे हैं</p>
+          <h3 className="celebrate__title">धन्यवाद</h3>
           <p className="celebrate__text">
-            Your presence will make our day complete. We cannot wait to celebrate
-            with you.
+            आपकी उपस्थिति हमारे इस खास दिन को पूर्ण बनाएगी। हम आपके साथ यह खुशी
+            बाँटने के लिए बेसब्री से इंतज़ार कर रहे हैं।
           </p>
           <p className="celebrate__signature">
             {couple.groomName} &amp; {couple.brideName}
