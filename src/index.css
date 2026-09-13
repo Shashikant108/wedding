@@ -1,24 +1,47 @@
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Great+Vibes&family=Poppins:wght@300;400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Cormorant+Garamond:wght@400;500;600;700&family=Great+Vibes&family=Poppins:wght@300;400;500;600&display=swap');
 
 :root {
+  /* Surfaces */
+  --bg: #170a0c;
+  --bg-deep: #0e0507;
+  --card-top: #2c1417;
+  --card-bottom: #1b0c0f;
+  --card-border: rgba(212, 162, 76, 0.28);
+  --card-shadow: 0 14px 30px rgba(0, 0, 0, 0.45);
+
+  /* Accents */
+  --gold: #d4a24c;
+  --gold-light: #e8c88a;
+  --gold-dim: rgba(212, 162, 76, 0.55);
+  --rose: #e0808f;
+  --rose-deep: #b6394f;
+
+  /* Text */
+  --text: #f5e7d6;
+  --text-muted: #bfa093;
+  --text-soft: #d8c3b4;
+
+  /* Legacy aliases kept so older rules keep resolving */
   --maroon: #7a1224;
-  --maroon-dark: #5c0d1a;
-  --gold: #c9973f;
-  --gold-light: #e8c27a;
-  --blush: #f6dfe0;
-  --blush-light: #fdf3ec;
-  --cream: #fdf6ef;
-  --pink: #e39aa4;
-  --text-dark: #3b2320;
-  --text-muted: #7a5f5c;
+  --maroon-dark: #4a0d18;
+  --blush: rgba(224, 128, 143, 0.14);
+  --blush-light: #170a0c;
+  --cream: #1b0c0f;
+  --pink: var(--rose);
+  --text-dark: var(--text);
 
   --font-script: 'Great Vibes', cursive;
-  --font-heading: 'Playfair Display', 'Georgia', serif;
+  --font-display: 'Cormorant Garamond', 'Playfair Display', Georgia, serif;
+  --font-heading: 'Playfair Display', Georgia, serif;
   --font-body: 'Poppins', system-ui, sans-serif;
 
-  color-scheme: light;
-  color: var(--text-dark);
-  background: var(--cream);
+  --radius-lg: 18px;
+  --radius-md: 14px;
+  --shell: 1180px;
+
+  color-scheme: dark;
+  color: var(--text);
+  background: var(--bg-deep);
   font-family: var(--font-body);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -30,6 +53,7 @@
 
 body {
   margin: 0;
+  background: var(--bg-deep);
 }
 
 #root {
@@ -55,6 +79,7 @@ a {
 }
 
 button {
+  font-family: inherit;
   -webkit-tap-highlight-color: transparent;
 }
 
@@ -63,6 +88,7 @@ img {
   display: block;
 }
 
-button {
-  font-family: inherit;
+:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 3px;
 }

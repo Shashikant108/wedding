@@ -1,32 +1,50 @@
+import { useState } from 'react'
 import heroPhoto from '../assets/hero-photo.jpg'
-import galleryTwo from '../assets/gallery-1.svg'
-import galleryThree from '../assets/gallery-2.svg'
-import galleryFour from '../assets/gallery-3.svg'
+import galleryOne from '../assets/gallery-photo-1.jpg'
+import galleryTwo from '../assets/gallery-photo-2.jpg'
+import galleryThree from '../assets/gallery-photo-3.jpg'
+import SectionHeader from './SectionHeader'
+import Lightbox from './ui/Lightbox'
 
 const GALLERY_ITEMS = [
   { src: heroPhoto, alt: 'Ramlakhan and Sangeeta', focus: 'right' },
-  { src: galleryTwo, alt: 'More moments coming soon' },
-  { src: galleryThree, alt: 'Photo coming soon' },
-  { src: galleryFour, alt: 'Together always' },
+  { src: galleryOne, alt: 'Rituals before the wedding day' },
+  { src: galleryTwo, alt: 'Family together at the celebration' },
+  { src: galleryThree, alt: 'Friends with the couple' },
 ]
 
 function Gallery() {
+  const [openIndex, setOpenIndex] = useState(null)
+
   return (
     <section id="gallery" className="gallery">
-      <h2 className="section-title">Our Journey So Far</h2>
-      <div className="section-title__underline" aria-hidden="true" />
+      <SectionHeader title="Our Journey So Far" subtitle="Moments we hold close" />
 
       <div className="gallery__grid">
-        {GALLERY_ITEMS.map((item) => (
-          <div className="gallery__item" key={item.src}>
+        {GALLERY_ITEMS.map((item, index) => (
+          <button
+            type="button"
+            className="gallery__item"
+            key={item.src}
+            aria-label={`View ${item.alt}`}
+            onClick={() => setOpenIndex(index)}
+          >
             <img
               src={item.src}
               alt={item.alt}
+              loading="lazy"
               style={item.focus ? { objectPosition: item.focus } : undefined}
             />
-          </div>
+          </button>
         ))}
       </div>
+
+      <Lightbox
+        items={GALLERY_ITEMS}
+        index={openIndex}
+        onChange={setOpenIndex}
+        onClose={() => setOpenIndex(null)}
+      />
     </section>
   )
 }

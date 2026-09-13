@@ -1,12 +1,9 @@
 import { useState } from 'react'
-import { couple } from '../data/weddingData'
+import { couple, navLinks } from '../data/weddingData'
 
-const NAV_LINKS = [
-  { label: 'Home', href: '#home' },
-  { label: 'Our Story', href: '#our-story' },
-  { label: 'Wedding Events', href: '#events' },
-  { label: 'Venue', href: '#venue' },
-  { label: 'RSVP', href: '#rsvp' },
+const MENU_LINKS = [
+  ...navLinks,
+  { label: 'Venue', href: '#venue', icon: '📍' },
 ]
 
 function Navbar() {
@@ -14,30 +11,35 @@ function Navbar() {
 
   return (
     <header className="navbar">
-      <a className="navbar__brand" href="#home">
-        <span aria-hidden="true">💕</span>
+      <a className="navbar__brand" href="#home" onClick={() => setIsOpen(false)}>
+        <span className="navbar__brand-mark" aria-hidden="true">
+          ❦
+        </span>
         <span className="navbar__brand-text">
-          {couple.groomName.charAt(0)} &amp; {couple.brideName.charAt(0)}
+          <span className="navbar__initials">
+            {couple.groomName.charAt(0)} &amp; {couple.brideName.charAt(0)}
+          </span>
+          <span className="navbar__tagline">{couple.subheading}</span>
         </span>
       </a>
 
-      <nav className={`navbar__links ${isOpen ? 'navbar__links--open' : ''}`}>
-        {NAV_LINKS.map((link) => (
+      <nav
+        id="primary-menu"
+        className={`navbar__links ${isOpen ? 'navbar__links--open' : ''}`.trim()}
+      >
+        {MENU_LINKS.map((link) => (
           <a key={link.href} href={link.href} onClick={() => setIsOpen(false)}>
             {link.label}
           </a>
         ))}
       </nav>
 
-      <a className="navbar__cta" href="#rsvp">
-        ♥ You're Invited
-      </a>
-
       <button
         type="button"
-        className="navbar__toggle"
+        className={`navbar__toggle ${isOpen ? 'is-open' : ''}`.trim()}
         aria-label="Toggle menu"
         aria-expanded={isOpen}
+        aria-controls="primary-menu"
         onClick={() => setIsOpen((open) => !open)}
       >
         <span />

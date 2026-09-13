@@ -1,4 +1,5 @@
 import { useCountdown } from '../hooks/useCountdown'
+import Card from './ui/Card'
 
 const UNITS = [
   { key: 'days', label: 'Days' },
@@ -11,7 +12,7 @@ function Countdown({ targetDate, title }) {
   const timeLeft = useCountdown(targetDate)
 
   return (
-    <div className="countdown">
+    <Card className="countdown">
       {title && <p className="countdown__title">{title}</p>}
       <div className="countdown__grid">
         {UNITS.map((unit) => (
@@ -23,7 +24,7 @@ function Countdown({ targetDate, title }) {
           </div>
         ))}
       </div>
-    </div>
+    </Card>
   )
 }
 

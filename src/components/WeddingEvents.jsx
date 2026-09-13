@@ -1,11 +1,14 @@
 import { events } from '../data/weddingData'
 import EventCard from './EventCard'
+import SectionHeader from './SectionHeader'
 
 function WeddingEvents() {
   return (
     <section id="events" className="events">
-      <h2 className="section-title">Wedding Celebrations</h2>
-      <div className="section-title__underline" aria-hidden="true" />
+      <SectionHeader
+        title="Wedding Celebrations"
+        subtitle="Moments that last forever"
+      />
 
       <div className="events__grid">
         {events.map((event) => (
