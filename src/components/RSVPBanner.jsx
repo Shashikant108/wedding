@@ -15,8 +15,8 @@ function RSVPBanner() {
   return (
     <section id="rsvp" className="rsvp">
       <span className="rsvp__icon" aria-hidden="true">♥</span>
-      <h2 className="rsvp__title">Will you be a part of our special day?</h2>
-      <p className="rsvp__subtitle">Kindly Confirm Your Presence</p>
+      <h2 className="rsvp__title">क्या आप हमारे इस खास दिन का हिस्सा बनेंगे?</h2>
+      <p className="rsvp__subtitle">कृपया अपनी उपस्थिति की पुष्टि करें</p>
 
       <div className="rsvp__actions">
         <button
@@ -24,22 +24,22 @@ function RSVPBanner() {
           className={`rsvp__btn rsvp__btn--yes ${response === 'yes' ? 'is-selected' : ''}`}
           onClick={acceptInvite}
         >
-          ♥ Yes, I'll Be There
+          ♥ हाँ, मैं ज़रूर आऊँगा
         </button>
         <button
           type="button"
           className={`rsvp__btn rsvp__btn--no ${response === 'no' ? 'is-selected' : ''}`}
           onClick={() => setResponse('no')}
         >
-          ✕ Sorry, Can't Make It
+          ✕ क्षमा करें, नहीं आ पाऊँगा
         </button>
       </div>
 
       {response && (
         <p className="rsvp__ack">
           {response === 'yes'
-            ? 'Thank you! We cannot wait to celebrate with you.'
-            : "Thanks for letting us know. You'll be missed!"}
+            ? 'धन्यवाद! हम आपके साथ यह खुशी बाँटने के लिए उत्सुक हैं।'
+            : 'बताने के लिए धन्यवाद। आपकी कमी ज़रूर खलेगी।'}
         </p>
       )}
 

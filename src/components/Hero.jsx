@@ -14,7 +14,8 @@ function Hero() {
     <section id="home" className="hero">
       <Carousel
         slides={HERO_SLIDES}
-        intervalMs={2000}
+        intervalMs={3000}
+        showDots={false}
         className="hero__carousel"
         label={`${couple.groomName} and ${couple.brideName}`}
       />

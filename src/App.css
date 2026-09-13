@@ -197,7 +197,7 @@ a.card:hover {
   padding: 0 0 28px;
 }
 
-/* Reusable sliding carousel */
+/* Reusable crossfade carousel */
 .carousel {
   position: relative;
   width: 100%;
@@ -205,17 +205,22 @@ a.card:hover {
   overflow: hidden;
 }
 
-.carousel__track {
-  display: flex;
-  will-change: transform;
-  transition: transform 0.7s cubic-bezier(0.45, 0, 0.15, 1);
-}
-
 .carousel__slide {
-  flex: 0 0 100%;
   width: 100%;
   height: auto;
   object-fit: contain;
+  opacity: 0;
+  transition: opacity 0.8s ease;
+}
+
+.carousel__slide:not(:first-child) {
+  position: absolute;
+  inset: 0;
+  height: 100%;
+}
+
+.carousel__slide.is-active {
+  opacity: 1;
 }
 
 .carousel__dots {
@@ -1097,7 +1102,4 @@ a.card:hover {
     animation: none;
   }
 
-  .carousel__track {
-    transition: none;
-  }
 }
